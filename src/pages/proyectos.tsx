@@ -21,11 +21,15 @@ const proyectos = [
 
 const Proyectos: React.FC = () => {
   return (
-    <section className="flex flex-col min-h-screen bg-zinc-200 px-4 py-10 ml-24">
+    <section className="flex flex-col min-h-screen bg-zinc-200 px-4 py-10 md:ml-24">
+      {/* Añadí md:ml-24 para el margen izquierdo en pantallas medianas y grandes */}
       <Sidebar />
-      <h1 className="text-5xl font-bold text-[#C26DBC] text-center mb-10">Mis Proyectos</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-[#C26DBC] text-center mb-8 md:mb-10">
+        Mis Proyectos
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto px-4">
+        {/* Por defecto grid-cols-1 para móviles */}
         {proyectos.map((proyecto, index) => (
           <div
             key={index}
@@ -34,23 +38,27 @@ const Proyectos: React.FC = () => {
             <img
               src={proyecto.imagen}
               alt={proyecto.titulo}
-              className="w-full h-52 object-cover rounded-xl mb-4"
+              className="w-full h-48 object-cover rounded-xl mb-4"
+              // Reduje la altura inicial de la imagen en móviles
             />
-            <h2 className="text-2xl font-semibold text-[#C26DBC] mb-2">
+            <h2 className="text-xl md:text-2xl font-semibold text-[#C26DBC] mb-2">
               {proyecto.titulo}
             </h2>
-            <p className="text-gray-700 leading-relaxed">{proyecto.descripcion}</p>
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+              {proyecto.descripcion}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Botón abajo */}
-      <div className="mt-12 text-center"></div>
-      <Link to="/misservicios">
-                <button className="mt-12 bg-[#C26DBC] text-white px-8 py-3 rounded-full hover:bg-[#B05EA9] transition-transform hover:scale-105 shadow-lg">
-                  Ver Mis Servicios 💼
-                </button>
-              </Link>
+      <div className="mt-8 text-center">
+        <Link to="/misservicios">
+          <button className="bg-[#C26DBC] text-white px-8 py-3 rounded-full hover:bg-[#B05EA9] transition-transform hover:scale-105 shadow-lg font-quicksand">
+            Ver Mis Servicios 💼
+          </button>
+        </Link>
+      </div>
     </section>
   );
 };
