@@ -7,7 +7,6 @@ import { FaWhatsapp } from 'react-icons/fa';
 const Contacto: React.FC = () => {
   const telefono = '+54 9 353 5624036'; 
   const email = 'carranzacelia@outlook.com'; 
-  const mensajeWhatsApp = encodeURIComponent('¡Hola! Me gustaría contactarlos desde mi portafolio.'); // Mensaje opcional
   const linkWhatsApp = `https://wa.link/k000nz`;
 
   return (
@@ -38,7 +37,7 @@ const Contacto: React.FC = () => {
         <div className="mb-4">
           <div className="flex items-center">
             <FaEnvelope className="text-xl text-[#C26DBC] mr-4" />
-            <a href={`mailto:${email}`} className="text-gray-700 hover:text-[#B05EA9] transition text-4x1">
+            <a href={`mailto:${email}`} className="text-gray-700 hover:text-[#B05EA9] transition">
               {email}
             </a>
           </div>
